@@ -14,3 +14,7 @@ body {
   padding: 10px;
   color: black;
 }
+
+.btn-primary {
+  margin-right: 5px
+}
