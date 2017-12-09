@@ -1,0 +1,16 @@
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.allTogether {
+  background-color: rgba(225, 225, 225, 0.2);
+  margin-top: 20%;
+  border: 2px solid black;
+  border-radius: 7px;
+  text-align: center;
+  font-family: lobster;
+  font-size: 25px;
+  padding: 10px;
+  color: black;
+}

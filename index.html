@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather app</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+       <div id="weather-conditions" class="allTogether">
+        <div id="pressure"></div>
+        <div id="humidity"></div>
+        <div id="wind"></div>
+      </div>
+       <div id="main" class="allTogether">
+        <div id="location"></div>
+        <img src="" alt="" id="pic">
+        <div id="temperature-current"></div>
+        <button id="to-celsius" class="btn btn-primary">Celsius</button>
+        <button id="to-farenheit" class="btn btn-primary">Farenheit</button>
+      </div>
+      <div class="buttons allTogether">
+        <button class="btn btn-primary cities" value="lati =36.5323 long=116.9325">Death Valley</button>
+        <button class="btn btn-primary cities">Melbourne</button>
+        <button class="btn btn-primary cities">Your current location</button>
+        <button class="btn btn-primary cities">Toronto</button>
+        <button class="btn btn-primary cities">Yakutsk</button>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+</div>
+	<script src="script.js"></script>
+</body>
+</html>
