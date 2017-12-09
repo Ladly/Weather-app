@@ -14,27 +14,60 @@
 <body>
 	<div class="container-fluid">
   <div class="row">
-    <div class="col-md-4"></div>
     <div class="col-md-4">
-      <div id="weather-conditions" class="allTogether">
+      <form class="all-together single-city-form">
+        <h2>Find single city current weather</h2>
+        <div class="form-group">
+          <label for="longitude">Longitude:</label>
+          <input type="number" class="form-control" id="pickedLongitude" placeholder="ex. 23.7162" step="any">
+        </div>
+        <div class="form-group">
+          <label for="latitude">Latitude:</label>
+          <input type="number" class="form-control" id="pickedLatitude" placeholder="ex. 37.9794">
+        </div>
+        <button type="submit" class="btn btn-default" id="submit-single-city-form">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <div id="weather-conditions" class="all-together">
         <div id="pressure"></div>
         <div id="humidity"></div>
         <div id="wind"></div>
       </div>
-      <div id="main" class="allTogether">
+      <div id="main" class="all-together">
         <div id="location"></div>
         <img src="" alt="" id="pic">
         <div id="temperature-current"></div>
         <button id="switch"></button>
       </div>
-      <div class="buttons allTogether" id="city-buttons-holder">
+      <div class="buttons all-together" id="city-buttons-holder">
       </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+       <form class="all-together add-city-localy">
+        <h2>Add local city</h2>
+         <div class="form-group">
+          <label for="longitude">City name:</label>
+          <input type="text" class="form-control" id="localCityName" placeholder="ex. Athens" step="any">
+        </div>
+        <div class="form-group">
+          <label for="longitude">Longitude:</label>
+          <input type="number" class="form-control" id="localPickedLongitude" placeholder="ex. 23.7162" step="any">
+        </div>
+        <div class="form-group">
+          <label for="latitude">Latitude:</label>
+          <input type="number" class="form-control" id="localPickedLatitude" placeholder="ex. 37.9794">
+        </div>
+        <button type="submit" class="btn btn-default" id="add-local-city">Submit</button>
+      </form>
+      <div class="all-together" id="custom-button-holder"></div>
+      <div class="all-together">
+        <button class="btn btn-primary" id="clear-local-storage">Clear Cities</button>
+      </div>
+    </div>
   </div>
 </div>
 
-</div>
 	<script src="script.js"></script>
 </body>
 </html>

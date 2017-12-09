@@ -3,9 +3,9 @@ body {
   background-repeat: no-repeat;
 }
 
-.allTogether {
+.all-together {
   background-color: rgba(225, 225, 225, 0.2);
-  margin-top: 20%;
+  margin-top: 10%;
   border: 2px solid black;
   border-radius: 7px;
   text-align: center;
@@ -17,4 +17,17 @@ body {
 
 .btn-primary {
   margin-right: 5px
+}
+
+.coordinates-input {
+  display: block;
+  margin: 10px;
+}
+
+.form-control {
+  width: 20%
+}
+
+.single-city-form, .add-city-localy {
+  text-align: left;
 }

@@ -1,6 +1,10 @@
+// athens (long: 23.716 lat: 37.979)
+// cologne(long: 6.953 lat:50.935)
+
 window.onload = getCurrentLocation();
 
 var position = document.getElementById("location");
+
 var weatherConditions = document.getElementById("weather-conditions");
 var pic = document.getElementById("pic");
 var temperature = document.getElementById("temperature-current");
@@ -8,7 +12,9 @@ var wind = document.getElementById("wind");
 var pressure = document.getElementById("pressure");
 var humidity = document.getElementById("humidity");
 var cityButtonsHolder = document.getElementById("city-buttons-holder");
+var customCityButtonHolder = document.getElementById('custom-button-holder')
 var cities = [];
+var submitSingleCityButton = document.getElementById('submit-single-city-form');
 var currentLocationButton = document.createElement("button");
 currentLocationButton.setAttribute("class", "btn btn-primary");
 currentLocationButton.innerHTML = "My current location";
@@ -129,3 +135,53 @@ for (var i = 0; i < cities.length; i++) {
   });
   cityButtonsHolder.append(cityButton, currentLocationButton);
 }
+
+
+submitSingleCityButton.addEventListener('click', function(){
+  var pickedLongitude = document.getElementById('pickedLongitude').value
+  var pickedLatitude = document.getElementById('pickedLatitude').value
+        $.getJSON(
+      "https://fcc-weather-api.glitch.me/api/current?lat=" +
+        pickedLatitude +
+        "&lon=" +
+        pickedLongitude
+    )
+      .done(update)
+      .fail(handleErr);
+})
+
+var submitLocalCity = document.getElementById('add-local-city')
+  submitLocalCity.addEventListener('click', function(){                     // function to add city you prefer to monitor temerature
+  var localCityCoordinates = {}
+  var localCity =  document.getElementById('localCityName').value
+  var localCityLongitude = document.getElementById('localPickedLongitude').value
+  var localCityLatitude = document.getElementById('localPickedLatitude').value
+  localCityCoordinates.longitude = localCityLongitude
+  localCityCoordinates.latitude = localCityLatitude
+  localStorage.setItem(localCity, JSON.stringify(localCityCoordinates));
+
+})
+
+ for(var city in localStorage) {
+   var customCityButton = document.createElement('button');
+   customCityButton.setAttribute('class', 'btn btn-primary')
+   customCityButton.innerHTML = city
+   customCityButtonHolder.append(customCityButton)
+   customCityButton.addEventListener('click', function(){
+     var leftSide = this.innerHTML
+     var values = JSON.parse(localStorage[leftSide])
+      $.getJSON(
+      "https://fcc-weather-api.glitch.me/api/current?lat=" +
+        values.latitude +
+        "&lon=" +
+        values.longitude
+    )
+      .done(update)
+      .fail(handleErr);
+     })
+ }
+
+var clearButton = document.getElementById('clear-local-storage')
+clearButton.addEventListener('click', function(){
+  localStorage.clear()
+})
